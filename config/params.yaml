@@ -1,0 +1,4 @@
+zed_segmentation:
+  ros__parameters:
+    MODEL_INDEX: 0
+    DISTANCE_THRESHOLD: 0.01
