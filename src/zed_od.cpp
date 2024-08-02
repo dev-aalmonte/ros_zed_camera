@@ -15,7 +15,7 @@
 #include "sensor_msgs/msg/image.hpp"
 #include "std_srvs/srv/set_bool.hpp"
 
-#include "cv_bridge/cv_bridge.h"
+// #include "cv_bridge/cv_bridge.h".
 
 using namespace std::chrono_literals;
 using std::placeholders::_1;
@@ -56,12 +56,12 @@ class ZedOD : public rclcpp::Node {
       RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Image Received: \n %d x %d", imageMsg->width, imageMsg->height);
       
       // Translate from msg to cv (using cvbridge)
-      u_int32_t width = imageMsg->width;
-      u_int32_t height = imageMsg->height;
+      // u_int32_t width = imageMsg->width;
+      // u_int32_t height = imageMsg->height;
 
-      cv_bridge::CvImagePtr cv_ptr;
-      cv_ptr = cv_bridge::toCvCopy(imageMsg);
-      cv::Mat left_cv = cv_ptr->image;
+      // cv_bridge::CvImagePtr cv_ptr;
+      // cv_ptr = cv_bridge::toCvCopy(imageMsg);
+      // cv::Mat left_cv = cv_ptr->image;
     }
 
     rclcpp::Client<std_srvs::srv::SetBool>::SharedPtr zed_od_client_;

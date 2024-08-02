@@ -89,6 +89,16 @@ def generate_launch_description():
             choices=['zed', 'zedm', 'zed2', 'zed2i', 'zedx', 'zedxm', 'virtual'],
             default_value='zed2i'
             ),
+        DeclareLaunchArgument(
+            'publish_tf',
+            default_value='true',
+            description='Enable publication of the `odom -> camera_link` TF.',
+            choices=['true', 'false']),
+        DeclareLaunchArgument(
+            'publish_map_tf',
+            default_value='true',
+            description='Enable publication of the `map -> odom` TF. Note: Ignored if `publish_tf` is False.',
+            choices=['true', 'false']),
         OpaqueFunction(function=launch_setup),
         
         Node(
@@ -145,7 +155,8 @@ def generate_launch_description():
                 ('camera_info', '/zed/zed_node/left_raw/camera_info')
             ],
             parameters=[
-                {'params_file': tags_36h11_yaml_file}
+                {'params_file': tags_36h11_yaml_file},
+                {'tag': {'ids': [7], 'frames': ['Detection']}}
             ]
         ),
         Node(
