@@ -18,3 +18,6 @@ Practice to Integrate zed camera topic on ros. Also it applies some filtering an
 > source install/setup.bash
 3. Launch
 > ros2 launch ros_zed_camera zed_filter.launch.py
+
+## Approach
+I use the PCL library, combined with ROS2 to get the point cloud out of the image. Apply filtering and and segmentation and publish those new point clouds generated.
